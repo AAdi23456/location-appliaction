@@ -14,10 +14,7 @@ client.connect();
 const validip=require("../middleware/ipaddress")
 const serachesmodel=require("../model/searches")
 
-/* This code defines a route for registering a user. When a GET request is made to the "/reg" endpoint,
-it extracts the email, name, and password from the request body. It then uses the bcrypt library to
-hash the password and store the hashed password along with the email and name in the database using
-the regmodel schema. Finally, it sends a response indicating that the registration was successful. */
+
 route.get("/reg", async (req, res) => {
     try {
         const { email, name, password } = req.body
@@ -36,6 +33,7 @@ route.get("/reg", async (req, res) => {
         return
     }
 })
+
 route.get("/login", async (req, res) => {
     try {
         const { email, password } = req.body
@@ -59,6 +57,7 @@ route.get("/login", async (req, res) => {
     }
 })
 
+
 route.get("/logout", async (req, res) => {
     try {
        
@@ -76,6 +75,7 @@ route.get("/logout", async (req, res) => {
     }
 
 })
+/* This code defines  */
 route.get("/mycity/:ip",validip, async(req,res)=>{
     try {
         const {ip}=req.params
